@@ -185,7 +185,19 @@
             version = "0.5.0";
             src = halley-stable-src;
 
-            cargoLock.lockFile = halley-stable-src + "/Cargo.lock";
+            cargoLock = {
+              lockFile = halley-stable-src + "/Cargo.lock";
+
+              outputHashes = {
+                "smithay-0.7.0" =
+                  "sha256-TV/GTfSvgfVwIFUGoASU7xm38opIBLjLMf1HeNTW07U=";
+              };
+            };
+
+            extraBuildInputs = with pkgs; [
+              pipewire
+              dbus
+            ];
 
             runtimeLibs = with pkgs; [
               libglvnd

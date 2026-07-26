@@ -10,6 +10,16 @@ Nix flake for [Halley](https://github.com/saltnpepper97/halley) — spatial Wayl
 }
 ```
 
+### Cachix
+
+Prebuilt Linux packages are published to the public `halley-flake` Cachix cache. Configure it once before installing or building:
+
+```bash
+nix run nixpkgs#cachix -- use halley-flake
+```
+
+GitHub Actions builds all package variants for each pull request and push. Push builds are uploaded to Cachix. To enable publishing, create a `CACHIX_AUTH_TOKEN` repository secret containing a Cachix auth token with write access to `halley-flake`.
+
 ```bash
 nix build .#halley-stable      # v0.4.0 release
 nix build .#halley-unstable    # latest main branch
@@ -20,7 +30,7 @@ nix build .#default            # same as unstable
 
 | Package | Source | Extras |
 |---|---|---|
-| `halley-stable` | v0.4.0 tag | halley, halleyctl |
+| `halley-stable` | v0.5.0 tag | halley, halleyctl |
 | `halley-unstable` | main branch | + xdg-desktop-portal-halley |
 
 Both install session files, systemd units, portal config, and D-Bus services.
@@ -59,4 +69,4 @@ nix profile install github:binarylinuxx/halley-flake#halley-unstable
 After installation, select **Halley** from your display manager session list, or run `halley-session` from a TTY.
 
 > [!NOTE]
-> The unstable and dev packages are recommended for users who want the latest fixes, since Halley currently moves fast and releases may lag behind those fixes. 
+> The unstable and dev packages are recommended for users who want the latest fixes, since Halley currently moves fast and releases may lag behind those fixes.
