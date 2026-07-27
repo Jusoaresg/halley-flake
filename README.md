@@ -18,8 +18,6 @@ Prebuilt Linux packages are published to the public `halley-flake` Cachix cache.
 nix run nixpkgs#cachix -- use halley-flake
 ```
 
-GitHub Actions builds all package variants for each pull request and push. Push builds are uploaded to Cachix. To enable publishing, create a `CACHIX_AUTH_TOKEN` repository secret containing a Cachix auth token with write access to `halley-flake`.
-
 ```bash
 nix build .#halley-stable      # v0.4.0 release
 nix build .#halley-unstable    # latest main branch
@@ -70,3 +68,6 @@ After installation, select **Halley** from your display manager session list, or
 
 > [!NOTE]
 > The unstable and dev packages are recommended for users who want the latest fixes, since Halley currently moves fast and releases may lag behind those fixes.
+
+# CONTRIBUTION 
+For contributing you must fork this repo and setup separated branch before submitting pull request for cachix required GitHub secret variable
