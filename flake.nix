@@ -289,6 +289,18 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
 
+        libdisplay-info-0_3 = pkgs.libdisplay-info.overrideAttrs (old: {
+          version = "0.3.0";
+          src = pkgs.fetchFromGitLab {
+            domain = "gitlab.freedesktop.org";
+            owner = "emersion";
+            repo = "libdisplay-info";
+            rev = "47a5590e9c4eb35d67651b8c05a55f1a48259329";
+            hash = "sha256-nXf2KGovNKvcchlHlzKBkAOeySMJXgxMpbi5z9gLrdc=";
+          };
+          postFixup = "";
+        });
+
         commonBuildInputs = with pkgs; [
           wayland
           libxkbcommon
@@ -296,7 +308,7 @@
           libgbm
           libglvnd
           libinput
-          libdisplay-info
+          libdisplay-info-0_3
           seatd
           systemd
           vulkan-loader
