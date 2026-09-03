@@ -296,6 +296,7 @@
           libgbm
           libglvnd
           libinput
+          libdisplay-info
           seatd
           systemd
           vulkan-loader
