@@ -349,6 +349,15 @@
             nativeBuildInputs = commonNativeBuildInputs;
             buildInputs = commonBuildInputs ++ extraBuildInputs;
 
+            cargoBuildFlags = [
+              "--package"
+              "halley"
+              "--package"
+              "halley-cli"
+              "--package"
+              "halley-portal"
+            ];
+
             LIBCLANG_PATH = "${pkgs.llvmPackages.libclang.lib}/lib";
 
             postInstall =
