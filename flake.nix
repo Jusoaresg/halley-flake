@@ -11,7 +11,8 @@
     };
 
     halley-unstable-src = {
-      url = "github:saltnpepper97/halley/main";
+      url = "github:jusoaresg/halley/main";
+      # url = "github:saltnpepper97/halley/main";
       flake = false;
     };
 
@@ -499,9 +500,8 @@
 
             cargoLock = {
               lockFile = halley-unstable-src + "/Cargo.lock";
-
               outputHashes = {
-                "smithay-0.7.0" = "sha256-TV/GTfSvgfVwIFUGoASU7xm38opIBLjLMf1HeNTW07U=";
+                "smithay-drm-extras-0.1.0" = "sha256-TV/GTfSvgfVwIFUGoASU7xm38opIBLjLMf1HeNTW07U=";
               };
             };
 
