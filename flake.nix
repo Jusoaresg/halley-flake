@@ -434,7 +434,7 @@
 
           halley-stable = mkHalley {
             pname = "halley";
-            version = "0.5.0";
+            version = "0.7.0";
             src = halley-stable-src;
 
             cargoLock = {
@@ -471,7 +471,7 @@
 
           halley-unstable = mkHalley {
             pname = "halley";
-            version = "0.5.0-unstable";
+            version = "0.7.0-unstable";
             src = halley-unstable-src;
 
             cargoLock = {
@@ -511,7 +511,7 @@
 
           halley-unstable-dev = mkHalley {
             pname = "halley";
-            version = "0.5.0-dev";
+            version = "0.7.0-dev";
             src = halley-unstable-dev-src;
 
             cargoLock = {
