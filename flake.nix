@@ -403,9 +403,15 @@
                 substituteInPlace "$out/bin/halley-session" \
                   --replace-fail "/usr/bin/halley" "$out/bin/halley"
 
-                substituteInPlace "$out/share/wayland-sessions/halley.desktop" \
-                  --replace-fail "Exec=/usr/bin/halley-session" \
-                    "Exec=$out/bin/halley-session"
+                if grep -q "Exec=/usr/bin/halley-session" "$out/share/wayland-sessions/halley.desktop"; then
+                  substituteInPlace "$out/share/wayland-sessions/halley.desktop" \
+                    --replace-fail "TryExec=/usr/bin/halley-session" "TryExec=$out/bin/halley-session" \
+                    --replace-fail "Exec=/usr/bin/halley-session" "Exec=$out/bin/halley-session"
+                else
+                  substituteInPlace "$out/share/wayland-sessions/halley.desktop" \
+                    --replace-fail "TryExec=halley-session" "TryExec=$out/bin/halley-session" \
+                    --replace-fail "Exec=halley-session" "Exec=$out/bin/halley-session"
+                fi
 
                 install -Dm644 \
                   "$src/packaging/xdg-desktop-portal/portals/halley.portal" \
